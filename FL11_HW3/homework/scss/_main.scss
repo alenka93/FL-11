@@ -1,0 +1,218 @@
+@mixin basic {
+	max-width: 1500px;
+	margin: 0 auto;
+}
+@mixin button {
+	color: white;
+	background-color: map_get($colors, button);
+	padding: 20px 55px;
+	border: none;
+	border-radius: 5%;
+	font-weight: bold;
+    font-size: 20px;
+	font-family: map_get($mapFonts, fontSansPro);
+}
+@mixin line {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: map_get($colors, lineColor);
+  width: 4.2em;
+  bottom: 12px;
+  z-index: -1;
+  height: 10px;
+}
+body {
+	background-color: map_get($colors, bodyColor); 
+}
+.header {
+	width: 100%;
+	background: $bgImg;
+	border-radius: 0 0 50% 0;
+	background-size: cover;
+	min-height: 900px;
+	.header-wrap {
+		@include basic;
+	}
+}
+.landing-logo {
+	padding-bottom: 40px;
+	width: 10%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    	p {
+    		text-align: center;
+    		color: map_get($colors, textH2);
+    		font-family: map_get($mapFonts, fontHind);
+    		font-weight: 700;
+    		font-size: 30px;
+    		padding: 0;
+    		line-height: 20px;
+    		span {
+    			display: block;
+    			font-weight: normal;
+    			font-size: 12px;
+    			}
+    		}
+	}
+.header_heading {
+	position: relative;
+	color: map_get($colors, textH2);
+	font-family: map_get($mapFonts, fontSansPro);
+	font-size: 80px;
+  	font-weight: bold;
+  	width: 50%;
+    line-height: 80px;
+    margin: 0;
+    width: 50%;
+  	z-index: 1;
+    &::after {
+	    @include line;
+	    height: 25px;
+  	}
+}
+.header_text {
+	width: 40em;
+	font-size:20px;
+	font-weight: 400;
+	white-space: pre-line;
+	font-family: map_get($mapFonts, fontSansPro);
+	color: map_get($colors, text);
+	margin: 70px 0;
+}
+.header_button {
+	@include button;
+}
+.section {
+	width: 100%;
+	background-color: map_get($colors, bodyColor);
+	overflov: hidden;
+	margin-bottom: 300px;
+	.section_text {
+		text-align: center;
+		font-family: map_get($mapFonts, fontHind);
+		color: map_get($colors, textH2);
+		font-size: 55px;
+  		font-weight: bold;
+  		position: relative;
+		z-index: 1;
+  		&::after {
+	    	@include line;
+	    	width: 13.5%;
+	    	height: 22%;
+	    	left: 51%;
+	    	bottom: 25%;
+  		}
+	}
+}
+.section_card_wrap {
+	@include basic;
+	.section_card{
+		width: 31%;
+    	margin: 10px;
+		background-color: map_get($colors, bgColor);
+		border-radius: 3%;
+		display: inline-block;
+		.section_card_img{
+			padding: 25px;
+			width: 90%;
+		}
+		.section_card_heading {
+			font-family: map_get($mapFonts, fontHind);
+			font-size: 27px;
+			font-weight: bold;
+			margin: 0 0 0 30%;
+			display: inline-block;
+			color: #fff;
+			position: relative;
+			z-index: 1;
+			.section_card_underline {
+				width: 100%;
+				&::after {
+					@include line;
+					width: 100%;
+					height: 27%;
+					left: 0;
+					bottom: 24%;
+				}
+			}
+		}
+	}
+}
+.section_card_text {
+	text-align: center;
+	color: #92b6ce;
+	font-family: map_get($mapFonts, fontHind);
+	width: 84%;
+    margin: 0 auto;
+    padding: 15px;
+}
+.section_banner {
+	width: 60%;
+	margin: 0 auto;
+  	background: $bgGradient;
+  	display: flex;
+  	border-radius: 10px;
+  	justify-content: space-around;
+  	position: absolute;
+  	z-index: 11;
+  	bottom: -110%;
+  	left: 17.5%;
+  	padding: 20px;
+  	.section_banner_button {
+    	@include button;
+    	align-self: center;
+  	}
+}
+  	.section_banner_text_wrap {
+  		.section_banner_heading {
+  			position: relative;
+    		z-index: 1;
+    		color: map_get($colors, textH2);
+    		font-family: map_get($mapFonts, fontHind);
+    		font-weight: 700;
+    		font-size: 35px;
+		    margin-bottom: 22px;
+		    &:after {
+		      @include line;
+		      left: 30%;
+		      width: 2.2em;
+		      height: 20%;
+		      bottom: 30%;
+		    }
+  		}
+  		.section_banner_text {
+  			margin-bottom: 20px;
+    		font-size: 20px;
+    		font-family: map_get($mapFonts, fontHind);
+  		}
+  		
+ }
+ .footer {
+  	background-color: map-get($colors, bgColor);
+  	color: white;
+ 	padding: 11em 0 5em 0;
+ 	.footer-wrap {
+ 		@include basic;
+ 	}
+ }
+ .footer-wrap {
+ 	display: flex;
+ }
+ .footer_logo {
+ 	@extend .landing-logo;
+ 	color: map_get($colors, text);
+ }
+ .footer_text {
+ 	width: 24%;
+ 	padding: 0 25%;
+    text-align: left;
+    font-size: 18px;
+    color: map_get($colors, text);
+    margin: 0;
+ }
+ span.footer-cr {
+ 	padding-top: 20px;
+ 	color: map_get($colors, text);
+ }
